@@ -1,6 +1,6 @@
 name: notification_reactor
 description: For DIY engineers! Define your own reaction by Push Notification (via APNs (iOS) / FirebaseCloudMessaging (Android)).
-version: 0.0.1
+version: 0.0.2
 author: kikuchy <kikuchy.h@gmial.com>
 homepage: https://github.com/kikuchy/notification_reactor
 
