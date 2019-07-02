@@ -39,12 +39,9 @@
 }
 
 - (void)didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    NSLog(@"Become Active!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!%@", [userInfo description]);
     if (_resumingFromBackground) {
-        NSLog(@"onRESUME!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         [_channel invokeMethod:@"onResume" arguments:userInfo];
     } else {
-        NSLog(@"onMEsage!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         [_channel invokeMethod:@"onMessage" arguments:userInfo];
     }
 }
