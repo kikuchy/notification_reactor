@@ -44,7 +44,6 @@ public class NotificationReactorPlugin extends BroadcastReceiver implements Meth
 
     private MethodChannel channel;
     private Registrar registrar;
-    private String triggerKey;
 
     private NotificationReactorPlugin(MethodChannel channel, Registrar registrar) {
         this.channel = channel;
@@ -60,9 +59,6 @@ public class NotificationReactorPlugin extends BroadcastReceiver implements Meth
             if (registrar.activity() != null) {
                 sendMessageFromIntent("onLaunch", registrar.activity().getIntent());
             }
-            result.success(null);
-        }   else if (call.method.equals("setTriggerToReact")) {
-            triggerKey = (String) call.arguments;
             result.success(null);
         } else {
             result.notImplemented();
@@ -103,7 +99,7 @@ public class NotificationReactorPlugin extends BroadcastReceiver implements Meth
     }
 
     private boolean sendMessageFromIntent(String method, Intent intent) {
-        if (shouldTrigger(intent, triggerKey)) {
+        if (shouldTrigger(intent)) {
             final Bundle extras = intent.getExtras();
             if (extras == null) return false;
 
@@ -125,13 +121,10 @@ public class NotificationReactorPlugin extends BroadcastReceiver implements Meth
         return false;
     }
 
-    private boolean shouldTrigger(Intent intent, @Nullable String key) {
+    private boolean shouldTrigger(Intent intent) {
         final Bundle extras = intent.getExtras();
         if (extras == null) return false;
-        if (key != null) {
-            return extras.containsKey(key);
-        }
-        return true;
+        return extras.containsKey(EXTRA_PUSH_MESSAGE);
     }
 
     private Map<String, Object> mapFromBundle(@NonNull Bundle bundle) {

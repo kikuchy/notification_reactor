@@ -23,10 +23,6 @@ class NotificationReactor {
       (_instance =
           NotificationReactor.private(const MethodChannel('notification_reactor')));
 
-  void setTriggerToReact({String key}) {
-    _channel.invokeMethod("setTriggerToReact", key);
-  }
-
   void setHandlers(
       {NotificationHandler onLaunch,
       NotificationHandler onResume,
