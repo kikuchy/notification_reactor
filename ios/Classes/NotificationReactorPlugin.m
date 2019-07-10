@@ -48,11 +48,11 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     _resumingFromBackground = YES;
-    application.applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     _resumingFromBackground = NO;
+    application.applicationIconBadgeNumber = 0;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
