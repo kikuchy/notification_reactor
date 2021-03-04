@@ -5,11 +5,15 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:notification_reactor/notification_reactor.dart';
 
-class MockMethodChannel extends Mock implements MethodChannel {}
+class MockMethodChannel extends Mock implements MethodChannel {
+  Future<T?> invokeMethod<T>(String method, [dynamic arguments]) {
+    return Future.value();
+  }
+}
 
 void main() {
   final MethodChannel channel = MockMethodChannel();
-  NotificationReactor reactor;
+  late NotificationReactor reactor;
 
   setUp(() {
     reactor = NotificationReactor.private(channel);

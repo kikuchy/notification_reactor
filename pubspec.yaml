@@ -5,17 +5,18 @@ author: kikuchy <kikuchy.h@gmial.com>
 homepage: https://github.com/kikuchy/notification_reactor
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.12.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  meta: ^1.1.6
+  meta: ^1.3.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  mockito: ^4.1.0
+  mockito: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
