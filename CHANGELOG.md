@@ -1,3 +1,7 @@
+## 0.0.4-nullsafety.0
+
+* support null-safety
+
 ## 0.0.3+1
 
 * Fix timing of removing notification badge on iOS
